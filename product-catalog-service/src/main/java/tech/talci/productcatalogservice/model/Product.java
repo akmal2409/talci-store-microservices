@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Document(value = "product")
-@Getter @Setter
+@Getter @Setter @ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -33,8 +33,8 @@ public class Product {
     private BigDecimal shippingCostFrom;
     private Boolean onSale;
 
-    @DecimalMax(value = "5.0", inclusive = true, message = "Rating cannot be greater than 5.0")
-    @DecimalMin(value = "1.0", inclusive = true, message = "Rating cannot be smaller than 1.0")
+    @DecimalMax(value = "5.0", message = "Rating cannot be greater than 5.0")
+    @DecimalMin(value = "1.0", message = "Rating cannot be smaller than 1.0")
     private Double rating;
     private Long orderCount;
 
