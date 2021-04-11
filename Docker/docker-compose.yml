@@ -1,0 +1,25 @@
+version: "3.4"
+
+services:
+  productCatalogDB:
+    image: mongo:3
+    ports:
+      - "27017:27017"
+    volumes:
+      - productCatalogData:/data/db
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: product-catalog
+    networks:
+      backend:
+        aliases:
+          - "product-catalog-db"
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  productCatalogData:
