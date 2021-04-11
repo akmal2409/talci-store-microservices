@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document(value = "Category")
+@Document(value = "category")
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
