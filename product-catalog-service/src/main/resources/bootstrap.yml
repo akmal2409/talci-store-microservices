@@ -2,3 +2,13 @@ spring:
   application:
     name: product-catalog-service
 
+  cloud:
+    vault:
+      host: localhost
+      port: 8200
+      scheme: http
+      authentication: TOKEN
+      token: ${VAULT_TOKEN}
+      application-name: product-catalog-service
+
+

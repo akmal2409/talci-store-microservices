@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+
+product-catalog-service-secrets.json
