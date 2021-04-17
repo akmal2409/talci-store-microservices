@@ -11,4 +11,19 @@ spring:
       token: ${VAULT_TOKEN}
       application-name: product-catalog-service
 
+# Eureka config
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.uuid}
 
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
