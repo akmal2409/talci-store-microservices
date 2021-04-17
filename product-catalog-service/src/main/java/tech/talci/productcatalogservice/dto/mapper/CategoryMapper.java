@@ -17,14 +17,14 @@ public abstract class CategoryMapper {
     @Autowired
     ProductMapper productMapper;
 
-    @Mapping(target = "numberOfProducts", expression = "java(getNumberOfProduct(category.getProducts()))")
+    @Mapping(target = "numberOfProducts", expression = "java(getNumberOfProducts(category.getProducts()))")
     @Mapping(target = "products", expression = "java(mapProductsToDto(category.getProducts()))")
-    abstract CategoryDto mapToDto(Category category);
+    public abstract CategoryDto mapToDto(Category category);
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "numberOfProducts", ignore = true)
     @Mapping(target = "products", ignore = true)
-    abstract Category mapToCategory(CategoryDto categoryDto);
+    public abstract Category mapToCategory(CategoryDto categoryDto);
 
     public Integer getNumberOfProducts(List<Product> products) {
         return products.size();

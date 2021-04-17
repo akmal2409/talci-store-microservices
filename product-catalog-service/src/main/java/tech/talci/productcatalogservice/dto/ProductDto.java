@@ -1,7 +1,6 @@
 package tech.talci.productcatalogservice.dto;
 
 import lombok.*;
-import tech.talci.productcatalogservice.model.Category;
 import tech.talci.productcatalogservice.model.ProductImage;
 import tech.talci.productcatalogservice.model.Promotion;
 
@@ -27,7 +26,7 @@ public class ProductDto {
     private Long orderCount;
     private LocalDateTime addedOn;
     private LocalDateTime lastUpdated;
-    private List<Category> categories = new ArrayList<>();
+    private List<CategoryDto> categories = new ArrayList<>();
     private List<Promotion> promotions = new ArrayList<>();
     private List<ProductImage> productImages = new ArrayList<>();
 }
