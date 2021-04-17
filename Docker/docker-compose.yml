@@ -16,6 +16,21 @@ services:
       backend:
         aliases:
           - "product-catalog-db"
+  warehouseDB:
+    image: mongo:3
+    ports:
+      - "27017:27017"
+    volumes:
+      - warehouseData:/data/db
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: warehouse
+    networks:
+      backend:
+        aliases:
+          - "warehouse-db"
 
 networks:
   backend:
@@ -23,3 +38,4 @@ networks:
 
 volumes:
   productCatalogData:
+  warehouseData:
