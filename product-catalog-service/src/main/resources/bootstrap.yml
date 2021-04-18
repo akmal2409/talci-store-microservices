@@ -10,7 +10,12 @@ spring:
       authentication: TOKEN
       token: ${VAULT_TOKEN}
       application-name: product-catalog-service
-
+#    Stream
+    stream:
+      bindings:
+        productAddedEventSupplier-out-0:
+          destination: product-added-events
+      source: productAddedEventSupplier
 # Eureka config
 eureka:
   client:
