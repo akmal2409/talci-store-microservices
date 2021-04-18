@@ -32,6 +32,19 @@ services:
         aliases:
           - "warehouse-db"
 
+  rabbitmq:
+    image: library/rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rabbitmq_data:/data
+    networks:
+      backend:
+        aliases:
+          - "rabbitmq"
+
 networks:
   backend:
     driver: bridge

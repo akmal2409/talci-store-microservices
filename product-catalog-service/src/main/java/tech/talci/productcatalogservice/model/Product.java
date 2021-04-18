@@ -15,11 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Document(value = "product")
-@Getter @Setter @ToString
+@Getter @Setter @ToString(exclude = {"categories", "promotions", "productImages"})
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class Product {
+
+    public enum Status { AVAILABLE, OUT_OF_STOCK, PENDING }
 
     @Id
     private String id;
@@ -32,6 +34,7 @@ public class Product {
     private Integer leftInStock;
     private BigDecimal shippingCostFrom;
     private Boolean onSale;
+    private Status status;
 
     @DecimalMax(value = "5.0", message = "Rating cannot be greater than 5.0")
     @DecimalMin(value = "1.0", message = "Rating cannot be smaller than 1.0")

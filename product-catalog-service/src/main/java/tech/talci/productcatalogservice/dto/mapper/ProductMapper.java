@@ -27,6 +27,7 @@ public abstract class ProductMapper {
     @Mapping(target = "rating", ignore = true)
     @Mapping(target = "orderCount", ignore = true)
     @Mapping(target = "promotions", ignore = true)
+    @Mapping(target = "status", ignore = true)
     @Mapping(target = "categories", expression = "java(mapCategories(productDto.getCategories()))")
     public abstract Product mapToProduct(ProductDto productDto);
 

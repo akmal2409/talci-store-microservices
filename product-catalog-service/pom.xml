@@ -100,10 +100,16 @@
             <version>0.2.0</version>
         </dependency>
 
-<!--        Discovery -->
+        <!--        Discovery -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!--        Messaging related dependencies-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
         </dependency>
     </dependencies>
     <dependencyManagement>

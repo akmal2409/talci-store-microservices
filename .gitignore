@@ -157,3 +157,6 @@ buildNumber.properties
 .flattened-pom.xml
 
 warehouse-service-secrets.json
+
+Docker/data
+Docker/data/*
