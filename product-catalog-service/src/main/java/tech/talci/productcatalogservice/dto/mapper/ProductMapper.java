@@ -22,7 +22,6 @@ public abstract class ProductMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "addedOn", ignore = true)
     @Mapping(target = "lastUpdated", ignore = true)
-    @Mapping(target = "skuCode", ignore = true)
     @Mapping(target = "onSale", ignore = true)
     @Mapping(target = "rating", ignore = true)
     @Mapping(target = "orderCount", ignore = true)

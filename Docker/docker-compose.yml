@@ -19,7 +19,7 @@ services:
   warehouseDB:
     image: mongo:3
     ports:
-      - "27017:27017"
+      - "27018:27017"
     volumes:
       - warehouseData:/data/db
     restart: unless-stopped
@@ -32,6 +32,30 @@ services:
         aliases:
           - "warehouse-db"
 
+  esSearch:
+    image: elasticsearch:7.12.1
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
+    volumes:
+      - ./data/esData:/usr/share/elasticsearch/data
+    networks:
+      backend:
+        aliases:
+          - "es-search"
+
+  esSearchDashboard:
+    image: elastichq/elasticsearch-hq
+    ports:
+      - "5000:5000"
+    networks:
+      backend:
+        aliases:
+          - "es-search-dashboard"
+
+
   rabbitmq:
     image: library/rabbitmq:3-management
     container_name: rabbitmq
@@ -39,7 +63,7 @@ services:
       - 5672:5672
       - 15672:15672
     volumes:
-      - rabbitmq_data:/data
+      - ./data/rabbitmqData:/data
     networks:
       backend:
         aliases:

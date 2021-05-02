@@ -9,6 +9,19 @@ spring:
       authentication: TOKEN
       token: ${VAULT_TOKEN}
       application-name: warehouse-service
+    stream:
+      function:
+        definition: productAddedEventSupplier
+      bindings:
+        stockUpdatedEventSupplier-out-0:
+          destination: stock-events
+        productAddedEventSupplier-in-0:
+          destination: product-added-events
+          group: warehouse-service
+      source: stockUpdatedEventSupplier
+  rabbitmq:
+    host: localhost
+    port: 5672
 
 # Eureka config
 eureka:
@@ -24,3 +37,6 @@ management:
     web:
       exposure:
         include: "*"
+
+server:
+  port: 8081

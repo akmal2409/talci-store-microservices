@@ -22,6 +22,7 @@ public class ProductDto {
     private String producer;
     private Integer leftInStock;
     private BigDecimal shippingCostFrom;
+    private String skuCode;
     private Boolean onSale;
     private Double rating;
     private Long orderCount;

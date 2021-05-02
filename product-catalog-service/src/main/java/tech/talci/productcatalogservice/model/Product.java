@@ -12,7 +12,9 @@ import javax.validation.constraints.DecimalMin;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Document(value = "product")
 @Getter @Setter @ToString(exclude = {"categories", "promotions", "productImages"})
@@ -21,7 +23,7 @@ import java.util.List;
 @Builder
 public class Product {
 
-    public enum Status { AVAILABLE, OUT_OF_STOCK, PENDING }
+    public enum Status { OUT_OF_STOCK, IN_STOCK }
 
     @Id
     private String id;
@@ -35,6 +37,7 @@ public class Product {
     private BigDecimal shippingCostFrom;
     private Boolean onSale;
     private Status status;
+    private boolean available;
 
     @DecimalMax(value = "5.0", message = "Rating cannot be greater than 5.0")
     @DecimalMin(value = "1.0", message = "Rating cannot be smaller than 1.0")
@@ -51,4 +54,5 @@ public class Product {
     private List<Category> categories = new ArrayList<>();
     private List<Promotion> promotions = new ArrayList<>();
     private List<ProductImage> productImages = new ArrayList<>();
+    private Map<String, List<String>> specs = new HashMap<>();
 }

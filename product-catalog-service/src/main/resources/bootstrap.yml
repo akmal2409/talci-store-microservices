@@ -12,10 +12,15 @@ spring:
       application-name: product-catalog-service
 #    Stream
     stream:
+      function:
+        definition: stockUpdatedEventSupplier
       bindings:
         productAddedEventSupplier-out-0:
           destination: product-added-events
-      source: productAddedEventSupplier
+        stockUpdatedEventSupplier-in-0:
+          destination: stock-events
+          group: product-catalog-service
+      source: stockUpdatedEventSupplier
 # Eureka config
 eureka:
   client:

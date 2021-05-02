@@ -160,3 +160,5 @@ warehouse-service-secrets.json
 
 Docker/data
 Docker/data/*
+
+Docker/esData
