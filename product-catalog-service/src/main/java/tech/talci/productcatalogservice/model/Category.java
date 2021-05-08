@@ -23,8 +23,5 @@ public class Category {
     private String name;
     private String description;
     private Integer numberOfProducts;
-    private String imagePath;
-
-    @DBRef(lazy = true)
-    private List<Product> products;
+    private String imagePath;;
 }

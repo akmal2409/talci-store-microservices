@@ -19,5 +19,4 @@ public class CategoryDto {
     private String description;
     private Integer numberOfProducts;
     private String imagePath;
-    private List<ProductDto> products;
 }

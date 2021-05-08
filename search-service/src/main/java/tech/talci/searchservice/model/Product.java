@@ -31,19 +31,19 @@ public class Product {
     @Field(name = "description", type = FieldType.Text)
     private String description;
 
-    @Field(name = "price_per_unit", type = FieldType.Float)
+    @Field(name = "price_per_unit", type = FieldType.Double)
     private BigDecimal pricePerUnit;
 
-    @Field(name = "country_of_origin", type = FieldType.Text)
+    @Field(name = "country_of_origin", type = FieldType.Keyword)
     private String countryOfOrigin;
 
-    @Field(name = "producer", type = FieldType.Text)
+    @Field(name = "producer", type = FieldType.Keyword)
     private String producer;
 
     @Field(name = "left_in_stock", type = FieldType.Integer)
     private Integer leftInStock;
 
-    @Field(name = "shipping_cost_from", type = FieldType.Float)
+    @Field(name = "shipping_cost_from", type = FieldType.Double)
     private BigDecimal shippingCostFrom;
 
     @Field(name = "available", type = FieldType.Boolean)

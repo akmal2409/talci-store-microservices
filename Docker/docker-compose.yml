@@ -44,8 +44,18 @@ services:
       - ./data/esData:/usr/share/elasticsearch/data
     networks:
       backend:
-        aliases:
-          - "es-search"
+
+
+  kibana01:
+    image: docker.elastic.co/kibana/kibana:7.12.1
+    container_name: kibana01
+    ports:
+      - 5601:5601
+    environment:
+      ELASTICSEARCH_URL: http://esSearch:9200
+      ELASTICSEARCH_HOSTS: '["http://esSearch:9200"]'
+    networks:
+      backend:
 
   rabbitmq:
     image: library/rabbitmq:3-management
