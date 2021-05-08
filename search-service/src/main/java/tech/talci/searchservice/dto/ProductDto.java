@@ -1,4 +1,4 @@
-package tech.talci.productcatalogservice.dto;
+package tech.talci.searchservice.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -11,8 +11,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import tech.talci.productcatalogservice.model.ProductImage;
-import tech.talci.productcatalogservice.model.Promotion;
+import tech.talci.searchservice.model.ProductImage;
+import tech.talci.searchservice.model.Promotion;
 
 @Getter
 @Setter
@@ -30,6 +30,7 @@ public class ProductDto {
     private Integer leftInStock;
     private BigDecimal shippingCostFrom;
     private String skuCode;
+    private Boolean onSale;
     private Double rating;
     private Long orderCount;
     private LocalDateTime addedOn;

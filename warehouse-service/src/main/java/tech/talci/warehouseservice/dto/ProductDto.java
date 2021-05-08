@@ -24,7 +24,6 @@ public class ProductDto {
     private Integer leftInStock;
     private BigDecimal shippingCostFrom;
     private String skuCode;
-    private Boolean onSale;
     private Double rating;
     private Long orderCount;
     private LocalDateTime addedOn;

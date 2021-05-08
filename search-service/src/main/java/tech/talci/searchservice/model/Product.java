@@ -19,8 +19,7 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 @Getter
 @Setter
 @ToString
-@JsonInclude(value = JsonInclude.Include.NON_NULL)
-@Document(indexName = "productIndex")
+@Document(indexName = "productIndex", shards = 1)
 public class Product {
 
     @Id
@@ -46,9 +45,6 @@ public class Product {
 
     @Field(name = "shipping_cost_from", type = FieldType.Float)
     private BigDecimal shippingCostFrom;
-
-    @Field(name = "on_sale", type = FieldType.Boolean)
-    private Boolean onSale;
 
     @Field(name = "available", type = FieldType.Boolean)
     private boolean available;

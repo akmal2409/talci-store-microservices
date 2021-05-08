@@ -40,7 +40,6 @@ public class Product {
     private String producer;
     private Integer leftInStock;
     private BigDecimal shippingCostFrom;
-    private Boolean onSale;
     private boolean available;
 
     @DecimalMax(value = "5.0", message = "Rating cannot be greater than 5.0")
