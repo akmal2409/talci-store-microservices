@@ -1,5 +1,7 @@
 package tech.talci.productcatalogservice.dto.mapper;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,9 +9,6 @@ import tech.talci.productcatalogservice.dto.CategoryDto;
 import tech.talci.productcatalogservice.dto.ProductDto;
 import tech.talci.productcatalogservice.model.Category;
 import tech.talci.productcatalogservice.model.Product;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Mapper(componentModel = "spring")
 public abstract class ProductMapper {
@@ -32,7 +31,7 @@ public abstract class ProductMapper {
 
     public List<Category> mapCategories(List<CategoryDto> categoryDtos) {
         return categoryDtos.stream()
-                .map(categoryMapper::mapToCategory)
-                .collect(Collectors.toList());
+            .map(categoryMapper::mapToCategory)
+            .collect(Collectors.toList());
     }
 }

@@ -1,5 +1,6 @@
 package tech.talci.warehouseservice.model;
 
+import java.time.LocalDateTime;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,9 +10,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
-
-@Getter @Setter @ToString
+@Getter
+@Setter
+@ToString
 @Document(value = "inventoryItem")
 @Builder
 public class InventoryItem {

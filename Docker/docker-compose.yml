@@ -38,6 +38,7 @@ services:
       - "9200:9200"
       - "9300:9300"
     environment:
+      - xpack.security.enabled=false
       - discovery.type=single-node
     volumes:
       - ./data/esData:/usr/share/elasticsearch/data
@@ -45,16 +46,6 @@ services:
       backend:
         aliases:
           - "es-search"
-
-  esSearchDashboard:
-    image: elastichq/elasticsearch-hq
-    ports:
-      - "5000:5000"
-    networks:
-      backend:
-        aliases:
-          - "es-search-dashboard"
-
 
   rabbitmq:
     image: library/rabbitmq:3-management

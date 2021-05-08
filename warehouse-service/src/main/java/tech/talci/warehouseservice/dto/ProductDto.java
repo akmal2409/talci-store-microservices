@@ -1,19 +1,12 @@
-package tech.talci.productcatalogservice.dto;
+package tech.talci.warehouseservice.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import tech.talci.productcatalogservice.model.Product;
-import tech.talci.productcatalogservice.model.ProductImage;
-import tech.talci.productcatalogservice.model.Promotion;
 
 @Getter
 @Setter
@@ -36,8 +29,8 @@ public class ProductDto {
     private Long orderCount;
     private LocalDateTime addedOn;
     private LocalDateTime lastUpdated;
-    private List<CategoryDto> categories = new ArrayList<>();
-    private List<Promotion> promotions = new ArrayList<>();
-    private List<ProductImage> productImages = new ArrayList<>();
-    private Map<String, List<String>> specs = new HashMap<>();
+//    private List<CategoryDto> categories = new ArrayList<>();
+//    private List<Promotion> promotions = new ArrayList<>();
+//    private List<ProductImage> productImages = new ArrayList<>();
+//    private Map<String, List<String>> specs = new HashMap<>();
 }

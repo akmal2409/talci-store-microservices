@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: search-service
+  rabbitmq:
+    username: guest
+    password: guest
+  cloud:
+    stream:
+      function:
+        definition: searchProductStreamSupplier
+        bindings:
+          searchProductStreamSupplier-in-0:
+            destination: search-product-stream-events
+
+# Eureka config
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.uuid}
+
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

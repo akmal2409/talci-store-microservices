@@ -1,14 +1,22 @@
 package tech.talci.productcatalogservice.events;
 
-import lombok.*;
+import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
-@Setter
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
-public class StockUpdateEvent {
-    private String skuCode;
-    private Integer count;
-    private boolean isPresent;
+public class StockUpdateEvent extends AbstractEvent {
+
+    private final String skuCode;
+    private final Integer count;
+    private final boolean isPresent;
+
+    public StockUpdateEvent(LocalDateTime timeStamp, String skuCode, Integer count,
+        boolean isPresent) {
+
+        super(timeStamp);
+        this.skuCode = skuCode;
+        this.count = count;
+        this.isPresent = isPresent;
+    }
 }

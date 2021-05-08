@@ -1,19 +1,25 @@
 package tech.talci.warehouseservice.controller;
 
+import java.util.List;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import tech.talci.warehouseservice.dto.InventoryItemDto;
 import tech.talci.warehouseservice.dto.StockValidationRequest;
 import tech.talci.warehouseservice.dto.StockValidationResponse;
 import tech.talci.warehouseservice.service.InventoryItemService;
 
-import javax.validation.Valid;
-import java.util.List;
-
 @RestController
 @RequestMapping(InventoryItemController.BASE_URL)
 @RequiredArgsConstructor
 public class InventoryItemController {
+
     public static final String BASE_URL = "/api/inventory";
     private final InventoryItemService inventoryItemService;
 
@@ -44,7 +50,8 @@ public class InventoryItemController {
 
     // bulk validation
     @PostMapping("/bulk-validation")
-    public StockValidationResponse validateStockItems(@RequestBody @Valid StockValidationRequest validationRequest) {
+    public StockValidationResponse validateStockItems(
+        @RequestBody @Valid StockValidationRequest validationRequest) {
         return this.inventoryItemService.checkStockAvailability(validationRequest);
     }
 }
