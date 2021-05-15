@@ -1,16 +1,22 @@
 spring:
   application:
     name: search-service
-  rabbitmq:
-    username: guest
-    password: guest
   cloud:
     stream:
       function:
-        definition: searchProductStreamSupplier
-        bindings:
-          searchProductStreamSupplier-in-0:
-            destination: search-product-stream-events
+        definition: productAddedEventSupplier, stockUpdatedEventSupplier
+      bindings:
+        productAddedEventSupplier-in-0:
+          destination: product-added-events
+          group: search-service
+        stockUpdatedEventSupplier-in-0:
+          destination: stock-events
+          group: search-service
+  rabbitmq:
+    username: guest
+    password: guest
+
+
 
 # Eureka config
 eureka:
@@ -29,6 +35,10 @@ management:
       exposure:
         include: "*"
 
+
+server:
+  port: 0
 logging:
   level:
-    org.springframework.data.elaticsearch.clinet.WIRE: TRACE, DEBUG
+    tech.talci: DEBUG
+

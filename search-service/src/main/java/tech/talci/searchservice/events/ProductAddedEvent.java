@@ -2,14 +2,14 @@ package tech.talci.searchservice.events;
 
 import java.time.LocalDateTime;
 import lombok.Getter;
-import tech.talci.searchservice.dto.ProductDto;
+import tech.talci.searchservice.model.Product;
 
 @Getter
 public class ProductAddedEvent extends AbstractEvent {
-    private final ProductDto productDto;
+    private final Product product;
 
-    public ProductAddedEvent(ProductDto productDto, LocalDateTime timeStamp) {
+    public ProductAddedEvent(Product product, LocalDateTime timeStamp) {
         super(timeStamp);
-        this.productDto = productDto;
+        this.product = product;
     }
 }

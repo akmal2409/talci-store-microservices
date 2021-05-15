@@ -1,6 +1,5 @@
 package tech.talci.searchservice.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -15,11 +14,10 @@ import org.springframework.data.elasticsearch.annotations.DateFormat;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
-
 @Getter
 @Setter
 @ToString
-@Document(indexName = "productIndex", shards = 1)
+@Document(indexName = "product_index", shards = 1)
 public class Product {
 
     @Id
@@ -27,6 +25,9 @@ public class Product {
 
     @Field(name = "name", type = FieldType.Text)
     private String name;
+
+    @Field(name = "sku_code", type = FieldType.Keyword)
+    private String skuCode;
 
     @Field(name = "description", type = FieldType.Text)
     private String description;

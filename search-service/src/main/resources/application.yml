@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition:
+          - stockUpdatedEventSupplier
+          - productAddedEventSupplier
+      bindings:
+        productAddedEventSupplier-in-0:
+          destination: product-added-events
+          group: search-service
+        stockUpdatedEventSupplier-in-0:
+          destination: stock-events
+          group: search-service
